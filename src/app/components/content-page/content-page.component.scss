@@ -1,0 +1,16 @@
+@import '../../../scss/utils/all';
+@import '../../../scss/mixins/all';
+@import '../../../scss/extends/all';
+
+.content-page {
+
+  &__header {
+    h1 { font-size: em(72); }
+    img { 
+      height: 50vh;
+      max-height: rem(160);
+      margin-top: rem(60);
+      max-width: 25vw;
+    }
+  }
+}

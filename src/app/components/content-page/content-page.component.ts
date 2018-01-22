@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ContentPageService, ContentPage } from './content-page.service';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,14 +6,11 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './content-page.component.html',
   styleUrls: ['./content-page.component.scss']
 })
-export class ContentPageComponent implements OnInit {
+export class ContentPageComponent {
   data$ = this.route.data;
+  logo = this.data$.map(a => a.items).map(item => item.logo);
 
   constructor(
     private route: ActivatedRoute
   ) { }
-
-  ngOnInit() {
-  }
-
 }

@@ -1,0 +1,57 @@
+@import '../../../scss/utils/all';
+@import '../../../scss/mixins/all';
+@import '../../../scss/extends/all';
+
+.main-nav {
+  height: 100%;
+  overflow: hidden;
+
+  &__navigation {
+    @extend %flex-column;
+    height: 100%;
+
+    ul {
+      @extend %clear-space;
+      @extend %flex-column;
+      height: calc(100% - #{rem(80)});
+      width: calc(50% - #{rem(60)});
+      position: relative;
+      top: rem(40);
+      padding-bottom: rem(40);
+      overflow:auto;
+
+      li {
+        margin-top: rem(20);
+        font-size: em(48);
+      }
+    }
+  }
+
+  &__details {
+    @extend %flex-column;
+    color: white;
+    right: rem(40);
+    width: calc(50% - #{rem(60)});
+
+    h1 { font-size: em(64) }
+  }
+
+  &__chapters {
+    @extend %centralize-vertical;
+    position: absolute;
+    right: rem(40);
+    width: 50%;
+    perspective: 100px;
+
+    ul {
+      transform: rotateY(-.4deg);
+
+      li {
+        text-align: center;
+        margin: rem(30) 0;
+        font-size: 1.2em;
+        font-family: 'Europa-Bold'
+      }
+    }
+  }
+}

@@ -1,3 +1,27 @@
+@import './utils/all';
+@import './mixins/all';
+@import './extends/all';
+@import './base/all';
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-synthesis: none;
+  -moz-font-feature-settings: 'kern';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: ltr;
+  text-align: left;
+}
+
 body {
-  background-color: red;
+  margin: 0;
+  font-family: 'Europa-Light';
+  overflow: hidden;
+  padding: rem(40);
+  height: 100vh;
 }

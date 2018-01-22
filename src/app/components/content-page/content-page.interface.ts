@@ -1,5 +1,8 @@
 export interface ContentPage {
-  Name: string;
-  Intro: string;
-  Chapters: Array<any>;
+  id?: number;
+  logo?: string;
+  color?: string;
+  title?: string;
+  intro?: string;
+  chapters?: Array<any>;
 }

@@ -1,0 +1,9 @@
+%centralize {
+  @include abs(50%, null, null, 50%);
+  transform: translate(-50%, -50%);
+}
+
+%centralize-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+}

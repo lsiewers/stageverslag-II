@@ -1,0 +1,52 @@
+@import './../scss/utils/all';
+@import './../scss/mixins/all';
+@import './../scss/extends/all';
+
+.main-nav__button {
+  @extend %centralize-vertical;
+  padding: rem(18);
+  left: 0;
+  z-index: 9;
+  position: fixed;
+  display: block;
+  background-color: white;
+}
+
+.main-header {
+  height: 100%;
+}
+
+.main-container {
+  overflow: auto;
+  height: 100%;
+
+  > * { width: 100%; }
+}
+
+.background {
+  @extend %fullscreen;
+  @include abs(0, null, null, 0);
+  z-index: -1;
+  pointer-events: none;
+  perspective: 100px;
+  transition: background-color .6s ease-in-out;
+  background-color: gray;
+
+  & > div { 
+    @include fxd(#{rem(40)}, #{rem(40)}, null, null);
+    height: calc(100vh - #{rem(80)});
+    width: calc(100vw - #{rem(80)});
+    background-color: white;
+    transform-origin: right center;
+    transform: scaleX(1) rotateY(0deg);
+    transition: transform .6s ease-in-out;
+  }
+
+  &.nav--active {
+    & > div {
+      transform: scaleX(.5) rotateY(-.4deg);
+    }
+
+    & + .main-container { height: 0; }
+  }
+}

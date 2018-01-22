@@ -6,11 +6,6 @@ import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/mergeMap';
 
-export interface ContentPage {
-  id: number;
-  title: string;
-}
-
 @Injectable()
 export class ContentPageService {
 
@@ -19,8 +14,7 @@ export class ContentPageService {
     return this.getField('content-pages', id);
   }
 
-  constructor(private db: AngularFirestore) {
-  }
+  constructor(private db: AngularFirestore) {}
 
   getField(table: string, id: number) {
     const q = ref => ref.where('id', '==', id);

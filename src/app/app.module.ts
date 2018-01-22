@@ -10,9 +10,11 @@ import { AppComponent } from './app.component';
 import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { ContentPageComponent } from './components/content-page/content-page.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
-import { ProgressIndicatorComponent } from './components/progress-indicator/progress-indicator.component';
+import { ProgressIndicatorComponent } from './components/content-page/progress-indicator/progress-indicator.component';
+
 import { routes } from './app-routing';
 import { ContentPageService } from './components/content-page/content-page.service';
+import { MainNavService } from './components/main-nav/main-nav.service';
 
 
 @NgModule({
@@ -21,7 +23,7 @@ import { ContentPageService } from './components/content-page/content-page.servi
     MainNavComponent,
     ContentPageComponent,
     HomePageComponent,
-    ProgressIndicatorComponent
+    ProgressIndicatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,10 @@ import { ContentPageService } from './components/content-page/content-page.servi
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
-  providers: [ContentPageService],
-  bootstrap: [AppComponent]
+  providers: [
+    ContentPageService,
+    MainNavService,
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

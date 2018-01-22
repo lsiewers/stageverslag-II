@@ -1,7 +1,23 @@
-<app-main-nav></app-main-nav>
+<header class="main-header" *ngIf="navActive">
+  <app-main-nav 
+    (hideNav)="hideNav($event)"
+    (setBackground)="setBackground($event)"
+    [getBackground]="bgColor"></app-main-nav>
+</header>
 
-<h1>
-  App works :)
-</h1>
+<div class="main-nav__button" *ngIf="!navActive">
+  <a class="button type--dark" (click)="showNav()">
+    menu
+  </a>
+</div>
 
-<router-outlet></router-outlet>
+<div 
+  class="background" 
+  [class.nav--active]="navActive"
+  [style.background-color]="bgColor">
+  <div></div>
+</div>
+
+<main class="main-container">
+  <router-outlet (activate)="loadBackground($event)"></router-outlet>
+</main>

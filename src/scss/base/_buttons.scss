@@ -1,0 +1,41 @@
+.button {
+  display: flex;
+  flex-direction: row;
+  padding: em(3) em(2);
+  position: relative;
+  overflow: hidden;
+
+  > * { flex: 0 0 auto; }
+
+  &::after {
+    @include abs(null, null, 0, 0);
+    @include size;
+    content: '';
+    transform: translateY(58%);
+    transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+    display: block;
+    opacity: .08;
+  }
+ 
+  .icon {
+    @include size(#{rem(12)})
+  }
+
+  &:hover {
+    &::after {
+      transform: translateY(0);
+      opacity: .12
+    }
+  }
+
+  &.type--dark {
+    color: black;
+    .icon { fill: black };
+    &::after { background-color: black; }
+  }
+  &.type--light {
+    color: white;
+    .icon { fill: white }
+    &::after { background-color: white }
+  }
+}

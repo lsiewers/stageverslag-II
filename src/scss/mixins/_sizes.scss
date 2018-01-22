@@ -1,0 +1,14 @@
+@mixin size($width: 100%, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin square($size) {
+  @include size($size);
+  display: inline-block;
+}
+
+@mixin circle($size) {
+  border-radius: 50%;
+  @include square($size);
+}

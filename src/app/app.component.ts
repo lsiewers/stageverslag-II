@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +7,16 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  items: Observable<any[]>;
-  constructor(db: AngularFirestore) {
-    this.items = db.collection('items').valueChanges();
-  }
+  navActive = false;
+  bgColor: string;
+
+  constructor(
+    private route: ActivatedRoute,
+  ) {}
+
+  loadBackground(e) { this.bgColor = e.data$ ? e.data$._value.items.color : null; }
+  setBackground(e) { this.bgColor = e.color; }
+
+  showNav() { this.navActive = true; }
+  hideNav(e) { this.navActive = false; }
 }

@@ -1,0 +1,31 @@
+@import '../../../scss/utils/all';
+@import '../../../scss/mixins/all';
+@import '../../../scss/extends/all';
+
+.home-page {
+
+  &__header {
+    h1 {
+      font-size: em(90);
+      margin: rem(60) 0 rem(30);
+    }
+
+    strong { color: grey; }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: row;
+    margin-top: rem(30);
+
+    div:not(:first-child) { margin-left: em(60); }
+
+    dt { font-size: .8em;  }
+    dd { margin: rem(6) 0 0; }
+  }
+
+  .button { 
+    font-size: 1.2em;
+    margin-top: rem(60);
+  }
+}

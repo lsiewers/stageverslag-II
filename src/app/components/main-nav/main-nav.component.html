@@ -1,1 +1,45 @@
-<ul><li *ngFor="let  link of items"><a routerLink="/detail/{{link.name}}">{{link.name}}</a></li></ul>
+<div class="main-nav">
+
+  <nav class="main-nav__navigation" *ngIf="!itemDetail">
+    <a (click)="closeNav($event); resetColor($event)" class="button type--light">sluiten</a>
+
+    <ul>
+      <li>
+        <a 
+          class="button type--light"  
+          routerLink="/" 
+          (click)="closeNav($event); setColor($event)">Home</a>
+      </li>
+      <li *ngFor="let link of items | async">
+        <a 
+          (click)="showDetail(link); setColor($event)" 
+          class="button type--light">
+          {{link.title}}
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="main-nav__details" *ngIf="itemDetail">
+
+    <a 
+      class="button type--light" 
+      (click)="itemDetail = false;">Terug</a>
+
+    <h1>{{itemDetail.title}}</h1>
+    <p class="intro">{{itemDetail.intro}}</p>
+    
+    <a 
+      class="button type--light"
+      routerLink="/content-page/{{itemDetail.id}}/{{itemDetail.title}}"
+      (click)="closeNav($event);">
+      Lees meer
+    </a>
+  </div>
+
+  <div class="main-nav__chapters" *ngIf="itemDetail">
+    <ul>
+      <li *ngFor="let chapter of itemDetail.chapters">{{chapter.title}}</li>
+    </ul>
+  </div>
+</div>
