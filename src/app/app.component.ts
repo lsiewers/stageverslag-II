@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +8,17 @@ import { ActivatedRoute } from '@angular/router';
 export class AppComponent {
   navActive = false;
   bgColor: string;
+  scrollTop: number;
 
   constructor(
-    private route: ActivatedRoute,
   ) {}
 
   loadBackground(e) { this.bgColor = e.data$ ? e.data$._value.items.color : null; }
   setBackground(e) { this.bgColor = e.color; }
 
   showNav() { this.navActive = true; }
-  hideNav(e) { this.navActive = false; }
+  hideNav(e) {
+    this.navActive = false;
+    this.scrollTop = 0;
+  }
 }

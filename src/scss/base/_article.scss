@@ -1,7 +1,14 @@
 .intro {
-  font-family: 'Europa-Bold';
+  font-family: europa;
+  font-weight: 700;
   font-size: 1.2em;
   margin: rem(30) 0;
   line-height: 1.5;
-  max-width: 560px;
+  display: inline-block;
+}
+
+.body {
+  margin: rem(30) auto 0;
+  width: 60%;
+  line-height: 1.5;
 }

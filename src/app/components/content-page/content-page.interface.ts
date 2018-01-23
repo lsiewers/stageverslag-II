@@ -5,4 +5,5 @@ export interface ContentPage {
   title?: string;
   intro?: string;
   chapters?: Array<any>;
+  images?: Array<any>;
 }

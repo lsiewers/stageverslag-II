@@ -1,6 +1,7 @@
 .button {
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding: em(3) em(2);
   position: relative;
   overflow: hidden;
@@ -18,7 +19,8 @@
   }
  
   .icon {
-    @include size(#{rem(12)})
+    @include size(#{em(24)});
+    padding: em(3) em(6) 0;
   }
 
   &:hover {

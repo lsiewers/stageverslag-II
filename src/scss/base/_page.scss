@@ -2,6 +2,6 @@
   @extend %flex-column;
   padding: rem(30) 0 rem(60);
   margin: 0 auto;
-  max-width: 840px;
-  overflow: auto;
+  max-width: 720px;
+  overflow-x: visible;
 }

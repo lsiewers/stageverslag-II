@@ -18,5 +18,10 @@ export const routes: Routes = [
     resolve: {
       items: ContentPageService
     }
+  },
+  {
+    path: '**',
+    redirectTo: '/',
+    pathMatch: 'full'
   }
 ];

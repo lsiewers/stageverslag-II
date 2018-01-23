@@ -1,7 +1,25 @@
 <section class="content-page page">
   <header class="content-page__header" [ngSwitch]="logo | async">
     <h1 *ngSwitchCase="null">{{(data$ | async)?.items.title}}</h1>
-    <img [src]="logo | async" *ngSwitchDefault>
+    <img [src]="logo | async" (load)="imgLoaded = true" [class.fade--in]="imgLoaded" *ngSwitchDefault>
   </header>
-  <!-- <app-progress-indicator></app-progress-indicator> -->
+  <main class="content-page__body">
+    <p class="intro">{{(data$ | async)?.items.intro}}</p>
+    <article *ngFor="let chapter of (data$ | async)?.items.chapters" class="body">
+      <h2>{{chapter.title}}</h2>
+      <p [innerHTML]="chapter.content"></p>
+    </article>
+  </main>
+  <section class="content-page__gallery" *ngIf="(data$ | async)?.items.images">
+    <h2>Foto's</h2>
+    <div class="content-page__gallery__container">
+      <img 
+        *ngFor="let img of (data$ | async)?.items.images; let i = index"
+        [src]="img"
+        class="gallery-img"
+        [hidden]="activeImg !== i + 1">
+      <a class="button type--dark is--next" (click)="nextImg($event)" *ngIf="hideButton !== 'next'"><img src="assets/icons/arrow-black.svg"></a>
+      <a class="button type--dark is--previous" (click)="prevImg($event)" *ngIf="hideButton !== 'prev'"><img src="assets/icons/arrow-black.svg"></a>
+    </div>
+  </section>
 </section>

@@ -33,7 +33,7 @@ export class MainNavComponent implements OnInit {
 
   setColor() {
     this.setBackground.emit({
-      color: this.itemDetail ? this.itemDetail.color : 'grey'
+      color: this.itemDetail ? this.itemDetail.color : '#000061'
     });
   }
 

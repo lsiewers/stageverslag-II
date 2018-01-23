@@ -1,7 +1,10 @@
 <div class="main-nav">
 
   <nav class="main-nav__navigation" *ngIf="!itemDetail">
-    <a (click)="closeNav($event); resetColor($event)" class="button type--light">sluiten</a>
+    <a (click)="closeNav($event); resetColor($event)" class="back-button button type--light">
+      <img class="icon" src="assets/icons/cross.svg" alt="close">
+      Sluiten
+    </a>
 
     <ul>
       <li>
@@ -24,17 +27,22 @@
 
     <a 
       class="button type--light" 
-      (click)="itemDetail = false;">Terug</a>
-
-    <h1>{{itemDetail.title}}</h1>
-    <p class="intro">{{itemDetail.intro}}</p>
-    
-    <a 
-      class="button type--light"
-      routerLink="/content-page/{{itemDetail.id}}/{{itemDetail.title}}"
-      (click)="closeNav($event);">
-      Lees meer
+      (click)="itemDetail = false;">
+      <img class="icon" src="assets/icons/arrow.svg" alt="back">
+      Terug
     </a>
+
+    <div class="main-nav__details__content">
+      <h1>{{itemDetail.title}}</h1>
+      <p class="intro">{{itemDetail.intro}}</p>
+      <a 
+        class="main-nav__details__content__more button type--light"
+        routerLink="/content-page/{{itemDetail.id}}/{{itemDetail.title}}"
+        (click)="closeNav($event);">
+        Lees meer
+      </a>
+    </div>
+    
   </div>
 
   <div class="main-nav__chapters" *ngIf="itemDetail">
